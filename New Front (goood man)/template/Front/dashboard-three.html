@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Meta -->
+    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta name="author" content="ThemePixels">
+
+    <title>ScreenScript</title>
+
+    <!-- vendor css -->
+    <link href="../../lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="../../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../../lib/cryptofont/css/cryptofont.min.css" rel="stylesheet">
+
+    <!-- DashForge CSS -->
+    <link rel="stylesheet" href="../../assets/css/dashforge.css">
+    <link rel="stylesheet" href="../../assets/css/dashforge.dashboard.css">
+  </head>
+  <body>
+
+    <aside class="aside aside-fixed">
+      <div class="aside-header">
+        <a href="../../index.html" class="aside-logo">Screen<span>Script</span></a>
+        <a href="" class="aside-menu-link">
+          <i data-feather="menu"></i>
+          <i data-feather="x"></i>
+        </a>
+      </div>
+      <div class="aside-body">
+        <div class="aside-loggedin">
+          <div class="d-flex align-items-center justify-content-start">
+            <a href="" class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></a>
+            <div class="aside-alert-link">
+              <a href="" class="new" data-toggle="tooltip" title="You have 2 unread messages"><i data-feather="message-square"></i></a>
+              <a href="" class="new" data-toggle="tooltip" title="You have 4 new notifications"><i data-feather="bell"></i></a>
+              <a href="" data-toggle="tooltip" title="Sign out"><i data-feather="log-out"></i></a>
+            </div>
+          </div>
+          <div class="aside-loggedin-user">
+            <a href="#loggedinMenu" class="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
+              <h6 class="tx-semibold mg-b-0">ВаDICK</h6>
+              <i data-feather="chevron-down"></i>
+            </a>
+            <p class="tx-color-03 tx-12 mg-b-0">Admin</p>
+          </div>
+          <div class="collapse" id="loggedinMenu">
+            <ul class="nav nav-aside mg-b-0">
+              <li class="nav-item"><a href="" class="nav-link"><i data-feather="edit"></i> <span>Edit Profile</span></a></li>
+              <li class="nav-item"><a href="" class="nav-link"><i data-feather="user"></i> <span>View Profile</span></a></li>
+              <li class="nav-item"><a href="" class="nav-link"><i data-feather="settings"></i> <span>Account Settings</span></a></li>
+              <li class="nav-item"><a href="" class="nav-link"><i data-feather="help-circle"></i> <span>Help Center</span></a></li>
+              <li class="nav-item"><a href="" class="nav-link"><i data-feather="log-out"></i> <span>Sign Out</span></a></li>
+            </ul>
+          </div>
+        </div><!-- aside-loggedin -->
+        <ul class="nav nav-aside">
+          <li class="nav-label">Empty Page</li>
+          <li class="nav-item"><a href="dashboard-one.html" class="nav-link"><i data-feather="shopping-bag"></i> <span>Article, generate!</span></a></li>
+          <li class="nav-item"><a href="dashboard-two.html" class="nav-link"><i data-feather="globe"></i> <span>Edit article</span></a></li>
+          <li class="nav-item active"><a href="dashboard-three.html" class="nav-link"><i data-feather="pie-chart"></i> <span>Empty Page</span></a></li>
+          <li class="nav-item"><a href="dashboard-four.html" class="nav-link"><i data-feather="life-buoy"></i> <span>Empty Page</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="content ht-100v pd-0">
+      <div class="content-header">
+        <div class="content-search">
+          <i data-feather="search"></i>
+          <input type="search" class="form-control" placeholder="Search...">
+        </div>
+        <nav class="nav">
+          <a href="" class="nav-link"><i data-feather="help-circle"></i></a>
+          <a href="" class="nav-link"><i data-feather="grid"></i></a>
+          <a href="" class="nav-link"><i data-feather="align-left"></i></a>
+        </nav>
+      </div><!-- content-header -->
+      </div>
+    </div><!-- content -->
+
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../lib/feather-icons/feather.min.js"></script>
+    <script src="../../lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../../lib/jquery.flot/jquery.flot.js"></script>
+    <script src="../../lib/jquery.flot/jquery.flot.stack.js"></script>
+    <script src="../../lib/jquery.flot/jquery.flot.resize.js"></script>
+    <script src="../../lib/chart.js/Chart.bundle.min.js"></script>
+
+    <script src="../../assets/js/dashforge.js"></script>
+    <script src="../../assets/js/dashforge.aside.js"></script>
+    <script src="../../assets/js/dashforge.sampledata.js"></script>
+
+    <!-- append theme customizer -->
+    <script src="../../lib/js-cookie/js.cookie.js"></script>
+    <script src="../../assets/js/dashforge.settings.js"></script>
+
+    <script>
+      $(function(){
+        'use strict'
+
+        $.plot('#flotChart1', [{
+            data: df3,
+            color: '#e1e5ed',
+            lines: {
+              lineWidth: 1
+            }
+          },{
+            data: df3,
+            color: '#69b2f8',
+            lines: {
+              lineWidth: 1
+            }
+          },{
+            data: df3,
+            color: '#0168fa'
+          }], {
+    			series: {
+            stack: 0,
+    				shadowSize: 0,
+            lines: {
+              show: true,
+              lineWidth: 1.7,
+              fill: true,
+              fillColor: { colors: [ { opacity: 0 }, { opacity: 0.2 } ] }
+            }
+    			},
+          grid: {
+            borderWidth: 0,
+            labelMargin: 5,
+            hoverable: true
+          },
+    			yaxis: {
+            show: true,
+            color: 'rgba(72, 94, 144, .1)',
+            min: 0,
+            max: 160,
+            font: {
+              size: 10,
+              color: '#8392a5'
+            }
+          },
+    			xaxis: {
+            show: true,
+            color: 'rgba(72, 94, 144, .1)',
+            ticks: [[0, '08:00'], [20, '09:00'], [40, '10:00'], [60, '11:00'], [80, '12:00'], [100, '13:00'], [120, '14:00'], [140, '15:00']],
+            font: {
+              size: 10,
+              family: 'Arial, sans-serif',
+              color: '#8392a5'
+            },
+            reserveSpace: false
+          }
+    		});
+
+        function flotOption(min, max) {
+          return {
+            series: {
+              stack: 0,
+              shadowSize: 0,
+              lines: {
+                show: true,
+                lineWidth: 1.5,
+                fill: true,
+                fillColor: { colors: [ { opacity: 0 }, { opacity: 0.2 } ] }
+              }
+            },
+            grid: { borderWidth: 0 },
+            yaxis: { show: false },
+            xaxis: {
+              show: false,
+              min: min,
+              max: max
+            }
+          }
+        }
+
+        // Ethereum
+        $.plot('#flotChart2', [{
+          data: df3,
+          color: '#c0ccda',
+          lines: { lineWidth: 1 }
+        },{
+          data: df3,
+          color: '#a0aabc'
+        }], flotOption(0,50));
+
+        // Bitcoin Cash
+        $.plot('#flotChart3', [{
+          data: df3,
+          color: '#b8eace',
+          lines: { lineWidth: 1 }
+        },{
+          data: df3,
+          color: '#58cd8b'
+        }], flotOption(20,70));
+
+        // Litecoin
+        $.plot('#flotChart4', [{
+          data: df3,
+          color: '#c0ccdf',
+          lines: { lineWidth: 1 }
+        },{
+          data: df3,
+          color: '#6e8ab6'
+        }], flotOption(90,140));
+
+        // Dash
+        $.plot('#flotChart5', [{
+          data: df3,
+          color: '#b1d0fd',
+          lines: { lineWidth: 1 }
+        },{
+          data: df3,
+          color: '#4c94fb'
+        }], flotOption(80,130));
+
+
+
+        // Markets
+        $.plot('#flotChart6', [{
+            data: df1,
+            color: '#00cccc',
+            lines: {
+              lineWidth: 1.7,
+              fill: true,
+              fillColor: { colors: [ { opacity: 0 }, { opacity: 0.4 } ] }
+            }
+          },{
+            data: df2,
+            color: '#e1e5ed',
+            lines: {
+              lineWidth: 1,
+              fill: true,
+              fillColor: { colors: [ { opacity: 0 }, { opacity: 0.2 } ] }
+            }
+          }], {
+    			series: {
+    				shadowSize: 0,
+            lines: {
+              show: true,
+            }
+    			},
+          grid: {
+            borderWidth: 0,
+            labelMargin: 10,
+            aboveData: true
+          },
+    			yaxis: {
+            show: false,
+            max: 150
+          },
+    			xaxis: {
+            show: true,
+            tickColor: 'rgba(72,94,144, 0.07)',
+            ticks: [[25,'mar 10'],[50,'mar 11'],[75,'mar 12'],[100,'mar 13'],[125,'mar 14']],
+            //min: 35,
+            //max: 125
+          }
+    		});
+
+
+        /** PIE CHART **/
+        var datapie = {
+          labels: ['USD', 'EUR', 'CNY', 'GBP', 'JPY', 'KRW', 'SGD'],
+          datasets: [{
+            data: [25,15,10,12,9,13,16],
+            backgroundColor: ['#66a4fb', '#4cebb5','#fec85e','#ff7c8f','#a4e063','#a5d7fd','#b2bece']
+          }]
+        };
+
+        var optionpie = {
+          maintainAspectRatio: false,
+          responsive: true,
+          legend: {
+            display: false,
+          },
+          animation: {
+            animateScale: true,
+            animateRotate: true
+          }
+        };
+
+        // For a pie chart
+        var ctx2 = document.getElementById('chartDonut');
+        var myDonutChart = new Chart(ctx2, {
+          type: 'doughnut',
+          data: datapie,
+          options: optionpie
+        });
+
+      })
+    </script>
+  </body>
+</html>
