@@ -20,6 +20,7 @@
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="../../assets/css/dashforge.css">
     <link rel="stylesheet" href="../../assets/css/dashforge.dashboard.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/modal/styles.css">
   </head>
   <body>
 
@@ -96,12 +97,52 @@
               <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="save" class="wd-10 mg-r-5"></i> Save</button>
               <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="upload" class="wd-10 mg-r-5"></i> Export</button>
               <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="share-2" class="wd-10 mg-r-5"></i> Share</button>
-              <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="sliders" class="wd-10 mg-r-5"></i> Settings</button>
+              <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="sliders" class="wd-10 mg-r-5" id="myBtn"></i> Settings</button>
             </div>
           </div>
         </div><!-- container -->
       </div>
     </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Редактор статей</h2>
+
+            <form id="editForm">
+                <label for="font-size">Размер шрифта:</label>
+                <input type="number" id="font-size" min="1" max="100"><br>
+
+                <label for="font-style">Стиль шрифта:</label>
+                <select id="font-style">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                </select><br>
+
+                <label for="text-color">Цвет текста:</label>
+                <input type="color" id="text-color"><br>
+
+                <label for="background-color">Цвет фона:</label>
+                <input type="color" id="background-color"><br>
+
+                <label for="text-align">Выравнивание текста:</label>
+                <select id="text-align">
+                    <option value="left">Слева</option>
+                    <option value="center">По центру</option>
+                    <option value="right">Справа</option>
+                </select><br>
+
+                <label for="text-indent">Отступ первой строки:</label>
+                <input type="number" id="text-indent" min="0" max="100"><br>
+
+                <input type="submit" value="Применить">
+            </form>
+        </div>
+    </div>
+
+    <script src="../../lib/modal/script.js"></script> 
 
     <script src="../../lib/jquery/jquery.min.js"></script>
     <script src="../../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
