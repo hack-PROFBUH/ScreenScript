@@ -94,7 +94,7 @@
             </div>
             <div class="d-none d-md-block">
               <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="mail" class="wd-10 mg-r-5"></i> Email</button>
-              <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="file" class="wd-10 mg-r-5"></i> Generate article</button>
+              <button id="generate-article" class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="file" class="wd-10 mg-r-5"></i> Generate article</button>
               <button href="dashboard-two.html" class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="file" class="wd-10 mg-r-5"></i> Edit article</button>
             </div>
           </div>
@@ -113,6 +113,56 @@
                     <!-- The generated article will be inserted here. -->
                 </div>
             </div>
+
+
+            <script>
+              document.getElementById('generate-article').addEventListener('click', function(event) {
+                  event.preventDefault();
+
+                  var url = document.getElementById('video_url').value;
+                  if (!url) return alert('Please enter a URL.');
+
+                  var match = url.match(
+                      /^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/
+                  );
+                  if (!match) return alert('Please enter a valid YouTube URL.');
+
+                  localStorage.setItem('video_url', url);
+
+                  var embedUrl = 'https://www.youtube.com/embed/' + match[1];
+                  var previewHtml = 
+                      '<h5>Preview:</h5>' +
+                      '<iframe width="560" height="315" src="' + embedUrl + '" ' +
+                      'frameborder="0" allow="accelerometer; autoplay; clipboard-write; ' +
+                      'encrypted-media; gyroscope; picture-in-picture" ' +
+                      'allowfullscreen></iframe>';
+                  document.getElementById('article-output').innerHTML = previewHtml;
+
+                  // Start the process of generating the text from the video
+                  generateTextFromVideo(url);
+              });
+
+              function generateTextFromVideo(url) {
+                  fetch('/api/generate-text', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ url: url })
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                      // The generated text will be in `data.text`
+                      var articleHtml = '<h5>Generated Article:</h5><p>' + data.text + '</p>';
+                      document.getElementById('article-output').innerHTML += articleHtml;
+                  })
+                  .catch(error => {
+                      console.error('Error:', error);
+                      alert('An error occurred while generating the text.');
+                  });
+              }
+
+            </script>
+
+
 
 
         </div>
