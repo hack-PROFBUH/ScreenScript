@@ -1,6 +1,6 @@
 import numpy as np
 import os
-iimport cv2
+import cv2
 
 
 def mse(imageA, imageB):
