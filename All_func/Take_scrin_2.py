@@ -2,7 +2,7 @@ import cv2
 import os
 
 
-def generate_screenshots(video_path, screenshot_interval=20):
+def generate_screenshots(video_path, screenshot_interval=10):
 
     video = cv2.VideoCapture(video_path)
     fps = video.get(cv2.CAP_PROP_FPS)

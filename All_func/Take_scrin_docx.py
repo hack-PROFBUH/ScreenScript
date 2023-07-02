@@ -1,7 +1,7 @@
 import os
 from docx import Document
 
-doc = Document('existing_document.docx')
+doc = Document('.docx')
 
 screenshots_folder = "screenshots"
 
@@ -13,4 +13,4 @@ for file in files:
     if file.endswith((".png", ".jpg", ".jpeg")):
         doc.add_picture(os.path.join(screenshots_folder, file))
 
-doc.save("updated_document.docx")
+doc.save(".docx")
